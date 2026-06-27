@@ -8,14 +8,10 @@ import mongoose, { Types } from "mongoose";
 import { random } from "./util.js";
 import * as dotenv from "dotenv";
 import cors from "cors";
+import dns from "node:dns";
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
-// todo
-// add .env file
-// try catch
-// custom o/p if input format is wrong
-// midlleware file 
-// tags handel dublicate value check in post content
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -242,7 +238,7 @@ app.get("/api/v1/brain/:shareLink", async (req, res) => {
     }
     const userContent = await Content.find({
         userId: new Types.ObjectId(user?.userId)
-    });
+    }).populate("userId", "username").populate("tags", "title");
     res.json({
         content: userContent
     });

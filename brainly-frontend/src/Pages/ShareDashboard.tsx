@@ -2,8 +2,11 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { BACKEND_URL } from "../config"
-import { Shareicon } from "../components/Icon/ShareIcon"
 import { Card } from "../components/ui/Card"
+import { DocumentIcon } from "../components/Icon/Document"
+import { Twitter } from "../components/Icon/Twitter"
+import { YoutubeIcon } from "../components/Icon/YoutubeIcon"
+import { LinkIcon } from "../components/Icon/LinkIcon"
 
 
 export function ShareDashboard() {
@@ -42,17 +45,19 @@ export function ShareDashboard() {
     <div className="min-h-screen w-screen bg-gray-400/70 p-8">
       <div className='gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
         {content?.length > 0 ? (
-          content.map((item) => (
+          content.map(({type , link ,body ,title }) => 
             <Card 
-              body={item.body || ''} 
-              variant={item.type} 
-              link={item.link || ''} 
-              text={item.title}
-              leftIcon={<Shareicon size='sm'/>}  
-              RightIcon1={<Shareicon size='sm'/>} 
-              RightIcon2={<Shareicon size='sm'/>}
+              body={body} 
+              variant={type} 
+              link={link} 
+              text={title}
+              leftIcon={type === 'article' ? <DocumentIcon size='md'/> : 
+                        type === 'tweet' ? <Twitter size='md'/> :
+                        type === 'youtube' ? <YoutubeIcon size='md'/>: <LinkIcon size='md'/>
+            }
+
             />
-          ))
+          )
         ) : (
           <div className="col-span-3 text-center">
             <p className="text-white text-xl">No content shared yet</p>

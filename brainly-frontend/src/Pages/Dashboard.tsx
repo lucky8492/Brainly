@@ -21,9 +21,9 @@ import { BACKEND_URL } from '../config'
 export function Dashboard() {
   const [mount, setMount] = useState(false)
   const [shareMount, setShareMount] = useState(false)
-  const [tweet, setTweet] = useState(false)
-  const [youtube, setYoutube] = useState(false)
-  const [document, setDocument] = useState(false)
+  const [, setTweet] = useState(false)
+  const [, setYoutube] = useState(false)
+  const [, setDocument] = useState(false)
   const [profileMount , setProfileMount] = useState(false)
   const {content , refresh} = useContent()
 

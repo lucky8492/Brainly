@@ -1,6 +1,6 @@
 import { InputBox } from "../components/ui/Input"
 import { Button } from "../components/ui/Button"
-import { useRef, useState } from "react"
+import { useRef} from "react"
 import axios from "axios";
 import { BACKEND_URL } from "../config";
 import { useNavigate } from "react-router-dom";

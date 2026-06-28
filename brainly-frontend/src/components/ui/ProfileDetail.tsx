@@ -7,7 +7,7 @@ import { Button } from "./Button";
 
 
 
-export function ProfileDetail({open  , onClose}){
+export function ProfileDetail({open  , onClose}:any){
     const {username} = useContent()
     const navigate = useNavigate()
 

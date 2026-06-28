@@ -8,7 +8,7 @@ import { BACKEND_URL } from "../../config"
 
 
 
-export function ShareContent({open , onClose}){
+export function ShareContent({open , onClose}:any){
  
  async function shareContents(){
   try{

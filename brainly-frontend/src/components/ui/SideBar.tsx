@@ -7,7 +7,7 @@ import { LinkIcon } from "../Icon/LinkIcon"
 import { TagsIcon } from "../Icon/TagsIcon"
 
 
-export const SideBar = ({clickTweet , clickYoutube , clickDocument}) =>{
+export const SideBar = ({clickTweet , clickYoutube , clickDocument}:any) =>{
 
 
     return<div>

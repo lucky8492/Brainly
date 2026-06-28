@@ -21,6 +21,9 @@ import { BACKEND_URL } from '../config'
 export function Dashboard() {
   const [mount, setMount] = useState(false)
   const [shareMount, setShareMount] = useState(false)
+  const [tweet, setTweet] = useState(false)
+  const [youtube, setYoutube] = useState(false)
+  const [document, setDocument] = useState(false)
   const [profileMount , setProfileMount] = useState(false)
   const {content , refresh} = useContent()
 
@@ -63,7 +66,7 @@ export function Dashboard() {
 
         </div>
       <div className='gap-4 grid grid-cols-3'>
-        {content?.map(({type , link , body , title , tags , _id }) => 
+        {content?.map(({type , link , body , title , tags , _id }:any) => 
        <Card body={body} variant={type} link={link} text={title}
         leftIcon={type === 'article' ? <DocumentIcon size='md'/> : 
                   type === 'tweet' ? <Twitter size='md'/> :

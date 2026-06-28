@@ -4,9 +4,9 @@ import { Button } from "./Button"
 import { InputBox } from "./Input"
 import axios from "axios";
 import { BACKEND_URL } from "../../config";
-import { data } from "react-router-dom";
 
-export function AddContentCard({open, onClose}){
+
+export function AddContentCard({open, onClose}:any){
     const [selectVal , setSelectVal] = useState<string>();
     const token = localStorage.getItem("token");
     const titleRef = useRef<HTMLInputElement>(null)

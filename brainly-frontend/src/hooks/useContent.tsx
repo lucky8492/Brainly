@@ -4,7 +4,7 @@ import { BACKEND_URL } from "../config";
 
 
 export  function useContent(){
-    const [content , setContent] = useState();
+    const [content, setContent] = useState<any[]>([]);
     const [username  , setUsername]= useState("username")
       function refresh(){
          axios.get(`${BACKEND_URL}/api/v1/content` ,{
